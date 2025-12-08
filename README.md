@@ -2,7 +2,7 @@
 
 An open, privacy-first tool to estimate Dutch Box 3 tax (income from savings and investments). The app runs entirely in your browser — no data leaves your machine.
 
-![TaxNL Screenshot](assets/screenshot.png)
+![TaxNL Screenshot](frontend/src/assets/screenshot.png)
 
 ## Features
 - Transparent calculations based on configurable Box 3 defaults

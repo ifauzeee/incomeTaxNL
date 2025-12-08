@@ -74,7 +74,7 @@ const monetaryEntryPropType = PropTypes.shape({
   amount: PropTypes.number.isRequired,
 })
 
-function TaxInputForm({ values, onChange, year, onYearChange, onReset }) {
+function TaxInputForm({ values, onChange, year, onYearChange, onReset, configMenu }) {
   const [modalState, setModalState] = useState(null)
   const [expandedPanel, setExpandedPanel] = useState(null)
   const [editingIndex, setEditingIndex] = useState(null)
@@ -367,7 +367,10 @@ function TaxInputForm({ values, onChange, year, onYearChange, onReset }) {
   return (
     <form className="tax-form" onSubmit={(event) => event.preventDefault()} noValidate>
       <header className="tax-form__header">
-        <h2>Financial inputs</h2>
+        <div className="tax-form__header-row">
+          <h2>Financial inputs</h2>
+          {configMenu && <div className="tax-form__config-menu">{configMenu}</div>}
+        </div>
         <p>Understand your Box 3 income story — balances, debts, and all—without any data leaving your browser.</p>
         <Suspense fallback={null}>
           <JaaropgaveGuide />
@@ -678,6 +681,7 @@ TaxInputForm.propTypes = {
   year: PropTypes.number.isRequired,
   onYearChange: PropTypes.func.isRequired,
   onReset: PropTypes.func.isRequired,
+  configMenu: PropTypes.node,
 }
 
 export default TaxInputForm

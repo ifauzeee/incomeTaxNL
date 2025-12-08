@@ -1,0 +1,128 @@
+.box1-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.box1-form__header {
+  margin-bottom: 0.5rem;
+}
+
+.box1-form__header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #1a1a2e);
+  margin: 0 0 0.5rem 0;
+}
+
+.box1-form__header p {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #64748b);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.box1-form__year-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.box1-form__year-select {
+  min-width: 120px;
+}
+
+.box1-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Income and Period Row */
+.box1-form__income-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.box1-form__income-input {
+  width: 100%;
+}
+
+.box1-form__period-select {
+  width: 100%;
+}
+
+.box1-form__toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--color-surface-secondary, #f8fafc);
+  border-radius: 8px;
+  border: 1px solid var(--color-border, #e2e8f0);
+}
+
+.box1-form__toggles .MuiFormControlLabel-root {
+  margin-left: 0;
+}
+
+.box1-form__toggles .MuiFormControlLabel-label {
+  font-size: 0.875rem;
+}
+
+/* 30% Ruling Section */
+.box1-form__ruling-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.box1-form__ruling-options {
+  margin-left: 2.5rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface-tertiary, #f1f5f9);
+  border-radius: 6px;
+  border: 1px solid var(--color-border-light, #e2e8f0);
+}
+
+.box1-form__ruling-legend {
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  color: var(--color-text-secondary, #64748b) !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.box1-form__ruling-radio-group {
+  gap: 0.25rem;
+}
+
+.box1-form__ruling-radio-label {
+  margin-left: 0;
+}
+
+.box1-form__ruling-radio-label .MuiFormControlLabel-label {
+  font-size: 0.8125rem;
+}
+
+/* Reset section - matches Box 3 styling */
+.box1-form__reset-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -0.5rem;
+}
+
+.box1-form__reset-button {
+  text-transform: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .box1-form__ruling-options {
+    margin-left: 1.5rem;
+  }
+}

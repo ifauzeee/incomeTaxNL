@@ -92,6 +92,8 @@ export const STORAGE_KEYS = {
   FORM_VALUES: 'form.values.v1',
   SELECTED_YEAR: 'form.year.v1',
   BOX3_CONFIG: 'form.config.v1',
+  SELECTED_BOX_TYPE: 'form.boxType.v1',
+  BOX1_FORM_VALUES: 'form.box1.values.v1',
 }
 
 export default storage

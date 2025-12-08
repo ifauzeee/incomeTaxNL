@@ -116,7 +116,6 @@ function TaxResultPanel({ inputs, summary, config }) {
       <header className="tax-result__header">
         <div className="tax-result__title-row">
           <h2>Results</h2>
-          <span className="tax-result__live-badge">● Real-time</span>
         </div>
         <div className="tax-result__meta">
           <span className="tax-result__badge">Tax year {config?.year ?? 2025}</span>

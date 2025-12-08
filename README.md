@@ -1,14 +1,23 @@
+
 # TaxNL
 
-An open, privacy-first tool to estimate Dutch Box 3 tax (income from savings and investments). The app runs entirely in your browser — no data leaves your machine.
+**Your financial data stays private.** TaxNL is a privacy-first tool to estimate Dutch Box 1 and Box 3 taxes. All calculations run 100% locally in your browser — your personal financial data is never sent, stored, or collected by this app for any reason.
+
+**Why local-only?**
+- No risk of leaks, hacks, or misuse: your sensitive information never leaves your device.
+- No tracking, no uploads, no analytics: you stay in control of your data.
+- Use TaxNL with confidence for salary and capital gains calculations, knowing your privacy is protected.
+
+![TaxNL Screenshot](frontend/src/assets/screenshot.png)
 
 ![TaxNL Screenshot](frontend/src/assets/screenshot.png)
 
 ## Features
-- Transparent calculations based on configurable Box 3 defaults
-- Clean input modal with inline validation and edit-in-place
-- Tax partner toggle for thresholds and allowances
-- Live summary with breakdown of returns, costs, and estimated tax
+- Privacy-first: Your financial data never leaves your device
+- Instantly calculate Dutch salary (Box 1) and capital gains tax (Box 3)
+- Simple, clean input forms for salary, savings, investments, and debts
+- Tax partner support for accurate thresholds and allowances
+- Clear results panel with breakdowns and explanations
 
 ## Quick Start
 - Requirements: Node.js 18+ and npm

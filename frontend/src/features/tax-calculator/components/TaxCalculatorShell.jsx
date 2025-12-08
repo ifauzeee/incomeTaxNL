@@ -26,7 +26,7 @@ const BOX3_EMPTY_FORM = {
  */
 const getInitialBoxType = () => {
   const saved = storage.get(STORAGE_KEYS.SELECTED_BOX_TYPE)
-  return saved === 'box1' || saved === 'box3' ? saved : 'box1'
+  return saved === 'box1' || saved === 'box3' ? saved : 'box3'
 }
 
 /**

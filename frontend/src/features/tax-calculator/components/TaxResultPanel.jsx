@@ -183,45 +183,45 @@ function TaxResultPanel({ inputs, summary, config }) {
 
           {isBreakdownOpen && (
             <div id="tax-result-breakdown-content">
-              <p className="tax-result__explain-text">Here is the math spelled out step by step:</p>
-              <ol className="tax-result__explain-list">
-                <li>
-                  <span className="tax-result__math">
-                    Total assets = bank savings + investments = {formatEuro(inputs.bankBalance)} +{' '}
-                    {formatEuro(inputs.investmentAssets)} = <strong>{formatEuro(totalAssets)}</strong>
-                  </span>
-                </li>
-                <li>
-                  <span className="tax-result__math">
-                    Capital yield tax base = total assets − deductible debts = {formatEuro(totalAssets)} −{' '}
-                    {formatEuro(totalAssets - capitalYieldTaxBase)} = <strong>{formatEuro(capitalYieldTaxBase)}</strong>
-                  </span>
-                </li>
-                <li>
-                  <span className="tax-result__math">
-                    Basis for savings & investments = capital yield tax base − allowance = {formatEuro(capitalYieldTaxBase)} −{' '}
-                    {formatEuro(taxFreeAllowanceApplied)} = <strong>{formatEuro(summary.taxableBase)}</strong>
-                  </span>
-                </li>
-                <li>
-                  <span className="tax-result__math">
-                    Share in capital yield tax base = basis / capital yield tax base = {formatEuro(summary.taxableBase)} /{' '}
-                    {formatEuro(capitalYieldTaxBase)} = <strong>{(shareInCapitalYieldTaxBase * 100).toFixed(2)}%</strong>
-                  </span>
-                </li>
-                <li>
-                  <span className="tax-result__math">
-                    Income from savings & investments = taxable returns × share = {formatEuro(taxableReturns)} ×{' '}
-                    {(shareInCapitalYieldTaxBase * 100).toFixed(2)}% = <strong>{formatEuro(incomeFromSavingsAndInvestments)}</strong>
-                  </span>
-                </li>
-                <li>
-                  <span className="tax-result__math">
-                    Estimated tax = income × Box 3 tax rate = {formatEuro(incomeFromSavingsAndInvestments)} ×{' '}
-                    <strong>{(actualTaxRate * 100).toFixed(0)}%</strong> = <strong>{formatEuro(summary.estimatedTax)}</strong>
-                  </span>
-                </li>
-              </ol>
+                <p className="tax-result__explain-text">Here is the math spelled out step by step, with simple explanations:</p>
+                <ol className="tax-result__explain-list">
+                  <li style={{ marginBottom: '1.5em' }}>
+                    <span className="tax-result__math">
+                      <strong>Total assets</strong> = bank savings + investments = {formatEuro(inputs.bankBalance)} + {formatEuro(inputs.investmentAssets)} = <strong>{formatEuro(totalAssets)}</strong>
+                    </span>
+                    <div className="tax-result__explain-simple">This is all the money you have in the bank and in investments, added together.</div>
+                  </li>
+                  <li style={{ marginBottom: '1.5em' }}>
+                    <span className="tax-result__math">
+                      <strong>Capital yield tax base</strong> = total assets − deductible debts = {formatEuro(totalAssets)} − {formatEuro(totalAssets - capitalYieldTaxBase)} = <strong>{formatEuro(capitalYieldTaxBase)}</strong>
+                    </span>
+                    <div className="tax-result__explain-simple">We subtract the debts you can deduct from your total money. This gives the amount the tax office looks at.</div>
+                  </li>
+                  <li style={{ marginBottom: '1.5em' }}>
+                    <span className="tax-result__math">
+                      <strong>Basis for savings & investments</strong> = capital yield tax base − allowance = {formatEuro(capitalYieldTaxBase)} − {formatEuro(taxFreeAllowanceApplied)} = <strong>{formatEuro(summary.taxableBase)}</strong>
+                    </span>
+                    <div className="tax-result__explain-simple">You get a tax-free allowance. We take this away from the amount above. Only the rest is taxed.</div>
+                  </li>
+                  <li style={{ marginBottom: '1.5em' }}>
+                    <span className="tax-result__math">
+                      <strong>Share in capital yield tax base</strong> = basis / capital yield tax base = {formatEuro(summary.taxableBase)} / {formatEuro(capitalYieldTaxBase)} = <strong>{(shareInCapitalYieldTaxBase * 100).toFixed(2)}%</strong>
+                    </span>
+                    <div className="tax-result__explain-simple">This shows what part of your money is taxed after the allowance. If you have little money, this part is small.</div>
+                  </li>
+                  <li style={{ marginBottom: '1.5em' }}>
+                    <span className="tax-result__math">
+                      <strong>Income from savings & investments</strong> = taxable returns × share = {formatEuro(taxableReturns)} × {(shareInCapitalYieldTaxBase * 100).toFixed(2)}% = <strong>{formatEuro(incomeFromSavingsAndInvestments)}</strong>
+                    </span>
+                    <div className="tax-result__explain-simple">This is the amount the tax office thinks you earn from your savings and investments, based on rules.</div>
+                  </li>
+                  <li style={{ marginBottom: '1.5em' }}>
+                    <span className="tax-result__math">
+                      <strong>Estimated tax</strong> = income × Box 3 tax rate = {formatEuro(incomeFromSavingsAndInvestments)} × <strong>{(actualTaxRate * 100).toFixed(0)}%</strong> = <strong>{formatEuro(summary.estimatedTax)}</strong>
+                    </span>
+                    <div className="tax-result__explain-simple">This is the final tax you pay. It is a percentage of the amount above.</div>
+                  </li>
+                </ol>
             </div>
           )}
         </section>

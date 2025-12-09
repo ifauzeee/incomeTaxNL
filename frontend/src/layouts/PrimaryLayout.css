@@ -174,10 +174,68 @@
 }
 
 .app-footer {
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 1.5rem 2rem;
   text-align: center;
   font-size: 0.85rem;
   color: var(--brand-text-soft);
+  background: var(--brand-surface-alt);
+  border-top: 1px solid var(--brand-border);
+}
+
+.app-footer__disclaimer {
+  margin-bottom: 1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-footer__disclaimer p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.app-footer__disclaimer a {
+  color: var(--brand-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.app-footer__disclaimer a:hover,
+.app-footer__disclaimer a:focus {
+  border-bottom-color: var(--brand-primary);
+}
+
+.app-footer__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+}
+
+.app-footer__links a {
+  color: var(--brand-text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  transition: color 0.2s ease;
+}
+
+.app-footer__links a:hover,
+.app-footer__links a:focus {
+  color: var(--brand-primary);
+}
+
+.app-footer__links svg {
+  display: block;
+}
+
+.app-footer__separator {
+  color: var(--brand-border);
+  user-select: none;
 }
 
 .app-notice {

@@ -31,7 +31,7 @@ InfoIcon.propTypes = {
 
 function Box1ResultPanel({ inputs, summary, year }) {
   const [isBreakdownOpen, setIsBreakdownOpen] = useState(false)
-  const [viewPeriod, setViewPeriod] = useState('yearly')
+  const [viewPeriod, setViewPeriod] = useState('monthly')
   const [visibleCategories, setVisibleCategories] = useState(() => 
     Object.fromEntries(Object.entries(COMPONENT_CATEGORIES).map(([key, val]) => [key, val.default]))
   )

@@ -31,7 +31,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt'
 import { AVAILABLE_YEARS } from '../constants/box3Defaults.js'
 import { formatEuro } from '../../../utils/formatters.js'
 import JaaropgaveGuide from './JaaropgaveGuide.jsx'
-import './TaxInputForm.css'
+import './Box3InputForm.css'
 
 const FIELD_CONFIG = [
   {
@@ -95,7 +95,7 @@ const normalizeEntryList = (rawList) => {
 }
 
 
-function TaxInputForm({ values, onChange, year, onYearChange, onReset, configMenu }) {
+function Box3InputForm({ values, onChange, year, onYearChange, onReset, configMenu }) {
   const [modalState, setModalState] = useState(null)
   const [expandedPanel, setExpandedPanel] = useState(null)
   const [editingIndex, setEditingIndex] = useState(null)
@@ -694,7 +694,7 @@ function TaxInputForm({ values, onChange, year, onYearChange, onReset, configMen
   )
 }
 
-TaxInputForm.propTypes = {
+Box3InputForm.propTypes = {
   values: PropTypes.shape({
     bankAccounts: PropTypes.arrayOf(monetaryEntryPropType).isRequired,
     investmentAccounts: PropTypes.arrayOf(monetaryEntryPropType).isRequired,
@@ -708,4 +708,4 @@ TaxInputForm.propTypes = {
   configMenu: PropTypes.node,
 }
 
-export default TaxInputForm
+export default Box3InputForm

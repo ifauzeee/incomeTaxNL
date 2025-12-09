@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback, useEffect, lazy, Suspense } from 'react'
-import TaxInputForm from './TaxInputForm.jsx'
+import Box3InputForm from './Box3InputForm.jsx'
 import Box1InputForm from './Box1InputForm.jsx'
 import CalculatorToggleSwitch from './CalculatorToggleSwitch.jsx'
 import { useBox3Calculator } from '../hooks/useBox3Calculator.js'
@@ -12,7 +12,7 @@ import './CalculatorToggleSwitch.css'
 
 // Lazy load components for better initial bundle size
 const ConfigurationMenu = lazy(() => import('./ConfigurationMenu.jsx'))
-const TaxResultPanel = lazy(() => import('./TaxResultPanel.jsx'))
+const Box3ResultPanel = lazy(() => import('./Box3ResultPanel.jsx'))
 const Box1ResultPanel = lazy(() => import('./Box1ResultPanel.jsx'))
 
 const BOX3_EMPTY_FORM = {
@@ -27,7 +27,7 @@ const BOX3_EMPTY_FORM = {
  */
 const getInitialBoxType = () => {
   const saved = storage.get(STORAGE_KEYS.SELECTED_BOX_TYPE)
-  return saved === 'box1' || saved === 'box3' ? saved : 'box3'
+  return saved === 'box1' || saved === 'box3' ? saved : 'box1'
 }
 
 /**
@@ -241,7 +241,7 @@ function TaxCalculatorShell() {
               onReset={handleBox1Reset}
             />
           ) : (
-            <TaxInputForm
+            <Box3InputForm
               values={box3FormValues}
               onChange={handleBox3FieldChange}
               year={box3SelectedYear}
@@ -264,7 +264,7 @@ function TaxCalculatorShell() {
                 year={box1SelectedYear}
               />
             ) : (
-              <TaxResultPanel
+              <Box3ResultPanel
                 inputs={box3CalculatorInputs}
                 summary={box3Summary}
                 config={box3Config}

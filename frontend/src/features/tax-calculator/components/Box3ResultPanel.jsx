@@ -2,7 +2,7 @@ import { useState, useMemo, memo } from 'react'
 import PropTypes from 'prop-types'
 import { box3InputsPropType, box3SummaryPropType, box3ConfigPropType } from '../../../utils/propTypes.js'
 import { formatEuro } from '../../../utils/formatters.js'
-import './TaxResultPanel.css'
+import './Box3ResultPanel.css'
 
 const InfoIcon = memo(function InfoIcon({ text }) {
   return (
@@ -16,7 +16,7 @@ InfoIcon.propTypes = {
   text: PropTypes.string.isRequired,
 }
 
-function TaxResultPanel({ inputs, summary, config }) {
+function Box3ResultPanel({ inputs, summary, config }) {
   const [isBreakdownOpen, setIsBreakdownOpen] = useState(false)
 
   const breakdownLookup = useMemo(() => {
@@ -237,10 +237,10 @@ function TaxResultPanel({ inputs, summary, config }) {
   )
 }
 
-TaxResultPanel.propTypes = {
+Box3ResultPanel.propTypes = {
   inputs: box3InputsPropType.isRequired,
   summary: box3SummaryPropType.isRequired,
   config: box3ConfigPropType,
 }
 
-export default TaxResultPanel
+export default Box3ResultPanel

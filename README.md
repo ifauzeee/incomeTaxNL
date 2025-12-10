@@ -15,6 +15,7 @@
 
 ## Features
 - Privacy-first: Your financial data never leaves your device
+- Pick up where you left off - localStorage function stores your input data in your browser. Close your tab confidently!
 - Instantly calculate Dutch salary (Box 1) and capital gains tax (Box 3)
 - Simple, clean input forms for salary, savings, investments, and debts
 - Tax partner support for accurate thresholds and allowances

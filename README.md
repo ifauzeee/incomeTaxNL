@@ -9,9 +9,11 @@
 - No tracking, no uploads, no analytics: you stay in control of your data.
 - Use incomeTaxNL with confidence for salary and capital gains calculations, knowing your privacy is protected.
 
-![TaxNL Screenshot](frontend/src/assets/screenshot.png)
+### Box 1 (Salary Calculations)
+![TaxNL Screenshot Box 1](frontend/src/assets/Screenshot_box1.png)
 
-![TaxNL Screenshot](frontend/src/assets/screenshot.png)
+### Box 3 (Capital Gains Calculations)
+![TaxNL Screenshot Box 3](frontend/src/assets/Screenshot_box3.png)
 
 ## Features
 - Privacy-first: Your financial data never leaves your device

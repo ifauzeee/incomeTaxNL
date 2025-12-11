@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect, lazy, Suspense } from 'react'
+import { useState, useMemo, useCallback, useEffect, useRef, lazy, Suspense } from 'react'
 import Box3InputForm from './Box3InputForm.jsx'
 import Box1InputForm from './Box1InputForm.jsx'
 import CalculatorToggleSwitch from './CalculatorToggleSwitch.jsx'
@@ -101,6 +101,39 @@ const useDebouncedStorage = (key, value, delay = 250) => {
 }
 
 function TaxCalculatorShell() {
+  // Refs for scroll navigation
+  const inputPanelRef = useRef(null)
+  const resultsPanelRef = useRef(null)
+  
+  // Track if user has scrolled to results (for showing 'Go to Top' button)
+  const [showGoToTop, setShowGoToTop] = useState(false)
+  
+  // Scroll event handler to determine which button to show
+  useEffect(() => {
+    const handleScroll = () => {
+      if (resultsPanelRef.current) {
+        const resultsRect = resultsPanelRef.current.getBoundingClientRect()
+        // Show 'Go to Top' when results panel is mostly in view (top half of viewport)
+        setShowGoToTop(resultsRect.top < window.innerHeight / 2)
+      }
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll() // Check initial state
+    
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+  
+  // Scroll to results panel
+  const scrollToResults = useCallback(() => {
+    resultsPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [])
+  
+  // Scroll to top (input panel)
+  const scrollToTop = useCallback(() => {
+    inputPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [])
+  
   // Box type state (box1 or box3)
   const [boxType, setBoxType] = useState(getInitialBoxType)
   
@@ -229,7 +262,7 @@ function TaxCalculatorShell() {
         </div>
       </header>
       <div className="calculator-shell__content">
-        <div className="calculator-panel">
+        <div className="calculator-panel" ref={inputPanelRef}>
           {/* Toggle switch above the input panel */}
           <CalculatorToggleSwitch value={boxType} onChange={handleBoxTypeChange} />
           {boxType === 'box1' ? (
@@ -255,7 +288,7 @@ function TaxCalculatorShell() {
             />
           )}
         </div>
-        <div className="calculator-panel calculator-panel--results">
+        <div className="calculator-panel calculator-panel--results" ref={resultsPanelRef}>
           <Suspense fallback={<div className="results-panel-placeholder">Loading results...</div>}>
             {boxType === 'box1' ? (
               <Box1ResultPanel
@@ -274,6 +307,16 @@ function TaxCalculatorShell() {
         </div>
       </div>
       {/* Remove old footer switch buttons, toggle is now above input panel */}
+      
+      {/* Floating navigation button for mobile */}
+      <button
+        className={`floating-nav-btn ${showGoToTop ? 'floating-nav-btn--top' : 'floating-nav-btn--results'}`}
+        onClick={showGoToTop ? scrollToTop : scrollToResults}
+        aria-label={showGoToTop ? 'Go to top' : 'Go to results'}
+      >
+        <span className="floating-nav-btn__icon">{showGoToTop ? '↑' : '↓'}</span>
+        <span className="floating-nav-btn__text">{showGoToTop ? 'Go to Top' : 'See Results'}</span>
+      </button>
     </section>
   )
 }
